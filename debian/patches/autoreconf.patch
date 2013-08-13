@@ -1,0 +1,16 @@
+Description: make autoreconf succeed with modern automake
+Author: Simon Josefsson <simon@josefsson.org>
+
+---
+
+--- gpshell-1.4.4.orig/configure.in
++++ gpshell-1.4.4/configure.in
+@@ -7,7 +7,7 @@
+ 
+ AC_CANONICAL_HOST
+ 
+-AM_INIT_AUTOMAKE([-Wall -Werror])
++AM_INIT_AUTOMAKE([-Wall])
+ 
+ # check programs
+ AC_PROG_CC

@@ -1,10 +1,12 @@
 Source: gpshell
 Section: utils
 Priority: extra
-Maintainer: Dmitry Eremin-Solenikov <dbaryshkov@gmail.com>
-Build-Depends: debhelper (>= 8.0.0), autotools-dev, libglobalplatform-dev
-Standards-Version: 3.9.2
+Maintainer: Simon Josefsson <simon@josefsson.org>
+Build-Depends: debhelper (>= 9), dh-autoreconf, autotools-dev, pkg-config, libpcsclite-dev, libglobalplatform-dev
+Standards-Version: 3.9.4
 Homepage: http://globalplatform.sourceforge.net/
+Vcs-Git: git://github.com/Yubico/gpshell-dpkg.git
+Vcs-Browser: https://github.com/Yubico/gpshell-dpkg
 
 Package: gpshell
 Architecture: any
