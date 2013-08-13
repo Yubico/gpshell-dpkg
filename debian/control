@@ -1,0 +1,17 @@
+Source: gpshell
+Section: utils
+Priority: extra
+Maintainer: Dmitry Eremin-Solenikov <dbaryshkov@gmail.com>
+Build-Depends: debhelper (>= 8.0.0), autotools-dev, libglobalplatform-dev
+Standards-Version: 3.9.2
+Homepage: http://globalplatform.sourceforge.net/
+
+Package: gpshell
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: GlobalPlatform smart card script interpreter
+ GPShell is a script interpreter which talks to a smart card.  It is written
+ on top of the GlobalPlatform library, which was developed by Karsten Ohme.
+ It uses smart card communication protocols ISO-7816-4 and OpenPlatform 2.0.1
+ and GlobalPlatform 2.1.1. It can establish a secure channel with a smart card,
+ load, instantiate, delete, list applets on a smart card.
