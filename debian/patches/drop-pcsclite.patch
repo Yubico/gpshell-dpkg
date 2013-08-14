@@ -1,0 +1,64 @@
+Description: drop pcsclite dependency
+Author: Simon Josefsson <simon@josefsson.org>
+
+---
+
+--- gpshell-1.4.4.orig/configure.in
++++ gpshell-1.4.4/configure.in
+@@ -34,56 +34,6 @@
+ 
+ AX_CFLAGS_WARN_ALL
+ 
+-#######################
+-#pcsclite Configuration
+-#######################
+-
+-AC_ARG_VAR(WINSCARD_LIB_PATH, [Specifies the location of WinSCard.lib for Windows])
+-
+-# Windows must be handled different
+-case "$host" in
+-*-*-cygwin*)
+-	if ! test -f "$WINSCARD_LIB_PATH"/WinSCard.lib;
+-	  then AC_MSG_ERROR([WinSCard.lib not found, specify location of WinSCard.lib with
+-	./configure WINSCARD_LIB_PATH=<library directory>])
+-	fi
+-	AC_SUBST(PCSCLITE_LIBS,-L"$WINSCARD_LIB_PATH")
+-  ;;
+-*)
+-    PKG_CHECK_MODULES(PCSCLITE, libpcsclite >= 1.2.9-beta7, [],
+-      [ if test -f /usr/local/lib/pkgconfig/libpcsclite.pc ; then
+-        AC_MSG_ERROR([install pkg-config or set PKG_CONFIG_PATH to pkgconfig directory])
+-          else
+-                AC_MSG_WARN([install pcsc-lite 1.2.9-beta7 or later])
+-          fi
+-      ]
+-    )
+-  ;;
+-esac
+-
+-
+-
+-AC_ARG_VAR(PCSCLITE_H_PATH, [Specifies the location of pcsclite.h for Windows])
+-
+-OLD_CFLAGS="$CFLAGS"
+-case "$host" in
+-*-*-cygwin*)
+-	if ! test -f "$PCSCLITE_H_PATH/pcsclite.h";
+-	  then AC_MSG_ERROR([pcsclite.h not found, specify location of pcsclite.h with
+-	./configure PCSCLITE_H_PATH=<include directory>])
+-	fi
+-	AC_SUBST(PCSCLITE_CFLAGS,-I"$PCSCLITE_H_PATH")
+-  ;;
+-  *)
+-    CFLAGS="$CFLAGS $PCSCLITE_CFLAGS"
+-    AC_CHECK_HEADER(winscard.h, [],
+-  	  [AC_MSG_ERROR([winscard.h not found or usable, install pcsc-lite 1.2.9-beta7
+-    or later, or use ./configure PCSCLITE_CFLAGS=-I<include directory>])])
+-  ;;
+-esac
+-CFLAGS="$OLD_CFLAGS"
+-
+-
+ ####################
+ #Debug Configuration
+ ####################

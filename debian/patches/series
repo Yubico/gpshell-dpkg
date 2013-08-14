@@ -1,1 +1,2 @@
 autoreconf.patch
+drop-pcsclite.patch
